@@ -34,7 +34,6 @@ variable "Octopus.ServiceNow.ChangeRequest.Number" {
                 Octopus.ControlType = "SingleLineText"
             }
             label = "ServiceNow Change Request"
-            required = true
         }
     }
 }
