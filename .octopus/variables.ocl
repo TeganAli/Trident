@@ -14,10 +14,38 @@ variable "Project.Database.Name" {
     value "Trident_#{Tenant.Common.Abbreviation}_#{Octopus.Environment.Name}" {
         description = ""
     }
+
+    value "Trident_#{Retail.Tenant.ShortName}" {
+        description = ""
+    }
+
+    value "Trident_#{Octopus.Environment.Name}_#{Retail.Tenant.ShortName}" {
+        description = ""
+        environment = ["development", "qa"]
+    }
+
+    value "Trident_Staging_#{Retail.Tenant.ShortName}" {
+        description = ""
+        environment = ["staging", "staging-blue", "staging-green"]
+    }
 }
 
 variable "Project.Database.Report.Path" {
     value "C:\\DatabaseReports#{Tenant.Common.Abbreviation}#{Octopus.Environment.Name}" {}
+
+    value "C:\\DatabaseReports\\#{Octopus.Environment.Name}#{Retail.Tenant.ShortName}" {
+        description = ""
+    }
+
+    value "C:\\DatabaseReports\\Production\\#{Retail.Tenant.ShortName}" {
+        description = ""
+        environment = ["production-blue", "production-green"]
+    }
+
+    value "C:\\DatabaseReports\\Staging\\#{Retail.Tenant.ShortName}" {
+        description = ""
+        environment = ["staging-blue", "staging-green"]
+    }
 }
 
 variable "Project.Database.Server.Name" {
